@@ -1,7 +1,7 @@
 # Carlos Villanueva's CV
 
 - Phone: +1 609 999 9995
-- Email: [john.doe@example.com](mailto:john.doe@example.com)
+- Email: [carlos@example.com](mailto:carlos@example.com)
 - Location: Location
 - LinkedIn: [john.doe](https://linkedin.com/in/john.doe)
 - GitHub: [john.doe](https://github.com/john.doe)
