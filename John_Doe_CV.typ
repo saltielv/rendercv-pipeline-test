@@ -446,7 +446,7 @@
   [#fa-icon("location-dot", size: 0.9em) #h(0.05cm)Location],
   [#box(original-link("mailto:carlos@example.com")[#fa-icon("envelope", size: 0.9em) #h(0.05cm)carlos\@example.com])],
   [#box(original-link("tel:+1-609-999-9995")[#fa-icon("phone", size: 0.9em) #h(0.05cm)\(609\) 999-9995])],
-  [#box(original-link("https://linkedin.com/in/john.doe")[#fa-icon("linkedin", size: 0.9em) #h(0.05cm)john.doe])],
+  [#box(original-link("https://linkedin.com/in/carlos.villanueva")[#fa-icon("linkedin", size: 0.9em) #h(0.05cm)carlos.villanueva])],
   [#box(original-link("https://github.com/john.doe")[#fa-icon("github", size: 0.9em) #h(0.05cm)john.doe])],
 )
 #connections(connections-list)

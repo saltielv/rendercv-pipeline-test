@@ -3,7 +3,7 @@
 - Phone: +1 609 999 9995
 - Email: [carlos@example.com](mailto:carlos@example.com)
 - Location: Location
-- LinkedIn: [john.doe](https://linkedin.com/in/john.doe)
+- LinkedIn: [carlos.villanueva](https://linkedin.com/in/carlos.villanueva)
 - GitHub: [john.doe](https://github.com/john.doe)
 
 
