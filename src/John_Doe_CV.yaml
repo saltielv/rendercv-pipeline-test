@@ -136,7 +136,7 @@ design:
     use_icons_for_connections: true
     alignment: center
   section_titles:
-    type: with-partial-line
+    type: with-parial-line
     font_size: 1.4em
     bold: true
     small_caps: false
