@@ -9,12 +9,51 @@ permissions:
   contents: write
   
 jobs:
-  call_rendercv_workflow:
-    name: RenderCV
-    uses: ./.github/workflows/rendercv.yaml
-
+  # --- Job 1: Setup, render & upload artifact ---
   build:
-    needs: call_rendercv_workflow
+    name: RenderCV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+        
+      - name: Install RenderCV
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Find .yaml file
+        id: find_cv
+        run: |
+          TARGET_DIR="./src"
+          EXTENSION="*.yaml"
+          # Find the full path of the first matching file in the target directory
+          CV_FILE=$(ls -1 ${TARGET_DIR}/${EXTENSION} | head -n 1)
+          if [ -z "$CV_FILE" ]; then
+            echo "Error: No YAML file found in ${TARGET_DIR}."
+            exit 1
+          fi
+          echo "filepath=$CV_FILE" >> "$GITHUB_OUTPUT"
+        shell: bash
+      - name: Render CV
+        run: |
+          RENDER_INPUT="${{ steps.find_cv.outputs.filepath }}"
+          rendercv render $RENDER_INPUT
+      - name: Upload output files as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv_files
+          path: rendercv_output
+
+  # --- job 2: Download artifact and Create release ---
+
+  release:
+    name: ReleaseCV
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,7 +61,7 @@ jobs:
       - name: Download RenderCV Output
         uses: actions/download-artifact@v4
         with:
-          name: RenderCV Output
+          name: cv_files
           path: rendercv_output
       - name: Release
         uses: softprops/action-gh-release@v2
