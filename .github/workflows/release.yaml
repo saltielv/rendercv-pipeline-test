@@ -44,7 +44,7 @@ jobs:
           RENDER_INPUT="${{ steps.find_cv.outputs.filepath }}"
           rendercv render $RENDER_INPUT
       - name: Upload output files as an artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: cv_files
           path: rendercv_output
