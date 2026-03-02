@@ -59,7 +59,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Download RenderCV Output
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: cv_files
           path: rendercv_output
